@@ -4,10 +4,6 @@
  */
 package examen2labp2_danielcarrasco;
 
-/**
- *
- * @author Daniel
- */
 public class Deporte {
     
 }
