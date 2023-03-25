@@ -34,17 +34,39 @@ public class MainExamen extends javax.swing.JFrame {
 
         //CREAR
         if (((String) comboQs.getSelectedItem()).equalsIgnoreCase("Q1")) {
-            DefaultMutableTreeNode nombreNodo = new DefaultMutableTreeNode(tf_DeporteName.getText());
-            Q1N.add(nombreNodo);
+            for (int i = 0; i < deportesLista.size(); i++) {
+                if (deportesLista.get(i).getNombreD().equalsIgnoreCase(tf_DeporteName.getText())) {
+                    DefaultMutableTreeNode nombreNodo = new DefaultMutableTreeNode(deportesLista.get(i).getNombreD());
+                    Q1N.add(nombreNodo);
+                }
+
+            }
+            //DefaultMutableTreeNode nombreNodo = new DefaultMutableTreeNode(tf_DeporteName.getText());
+
         } else if (((String) comboQs.getSelectedItem()).equalsIgnoreCase("Q2")) {
-            DefaultMutableTreeNode nombreNodo = new DefaultMutableTreeNode(tf_DeporteName.getText());
-            Q2N.add(nombreNodo);
+            for (int i = 0; i < deportesLista.size(); i++) {
+                if (deportesLista.get(i).getNombreD().equalsIgnoreCase(tf_DeporteName.getText())) {
+                    DefaultMutableTreeNode nombreNodo = new DefaultMutableTreeNode(deportesLista.get(i).getNombreD());
+                    Q1N.add(nombreNodo);
+                }
+
+            }
         } else if (((String) comboQs.getSelectedItem()).equalsIgnoreCase("Q4")) {
-            DefaultMutableTreeNode nombreNodo = new DefaultMutableTreeNode(tf_DeporteName.getText());
-            Q4N.add(nombreNodo);
+            for (int i = 0; i < deportesLista.size(); i++) {
+                if (deportesLista.get(i).getNombreD().equalsIgnoreCase(tf_DeporteName.getText())) {
+                    DefaultMutableTreeNode nombreNodo = new DefaultMutableTreeNode(deportesLista.get(i).getNombreD());
+                    Q1N.add(nombreNodo);
+                }
+
+            }
         } else if (((String) comboQs.getSelectedItem()).equalsIgnoreCase("Q5")) {
-            DefaultMutableTreeNode nombreNodo = new DefaultMutableTreeNode(tf_DeporteName.getText());
-            Q5N.add(nombreNodo);
+            for (int i = 0; i < deportesLista.size(); i++) {
+                if (deportesLista.get(i).getNombreD().equalsIgnoreCase(tf_DeporteName.getText())) {
+                    DefaultMutableTreeNode nombreNodo = new DefaultMutableTreeNode(deportesLista.get(i).getNombreD());
+                    Q1N.add(nombreNodo);
+                }
+
+            }
         }
 
         /*DefaultMutableTreeNode futbolN = new DefaultMutableTreeNode("Fútbol");
@@ -111,6 +133,8 @@ public class MainExamen extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         DialogTorneos = new javax.swing.JDialog();
         jPanel4 = new javax.swing.JPanel();
+        PopMenu = new javax.swing.JPopupMenu();
+        Ejemplo = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -271,6 +295,15 @@ public class MainExamen extends javax.swing.JFrame {
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        PopMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PopMenuMouseClicked(evt);
+            }
+        });
+
+        Ejemplo.setText("jMenuItem1");
+        PopMenu.add(Ejemplo);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(105, 78, 181));
@@ -287,6 +320,11 @@ public class MainExamen extends javax.swing.JFrame {
         treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Q5");
         treeNode1.add(treeNode2);
         Arbolito.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        Arbolito.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ArbolitoMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(Arbolito);
 
         jButton1.setBackground(new java.awt.Color(77, 45, 171));
@@ -410,12 +448,12 @@ public class MainExamen extends javax.swing.JFrame {
         //AGREGAR DEPORTES
         String nombreDeporte = tf_DeporteName.getText();
         String periodo = (String) comboQs.getSelectedItem();
-        
+
         if (tf_DeporteName.getText() != null) {
             Deporte deportes = new Deporte(nombreDeporte, periodo);
             deportesLista.add(deportes);
             Torneos();
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Ingrese un nombre");
         }
 
@@ -430,7 +468,19 @@ public class MainExamen extends javax.swing.JFrame {
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
+        //Arbolito.get
     }//GEN-LAST:event_jButton4MouseClicked
+
+    private void PopMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PopMenuMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PopMenuMouseClicked
+
+    private void ArbolitoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ArbolitoMouseClicked
+        // TODO add your handling code here:
+        if (evt.getButton() == 3) {
+            PopMenu.show(this, evt.getX(), evt.getY());
+        }
+    }//GEN-LAST:event_ArbolitoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -472,6 +522,8 @@ public class MainExamen extends javax.swing.JFrame {
     private javax.swing.JDialog DialogDeporte;
     private javax.swing.JDialog DialogEquipos;
     private javax.swing.JDialog DialogTorneos;
+    private javax.swing.JMenuItem Ejemplo;
+    private javax.swing.JPopupMenu PopMenu;
     private javax.swing.JComboBox<String> comboQs;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
