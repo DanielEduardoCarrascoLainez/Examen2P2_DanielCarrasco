@@ -43,8 +43,10 @@ public class Deporte {
     public void setPeriodo(String periodo) {
         this.periodo = periodo;
     }
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return "Deporte{" + "nombreD=" + nombreD + ", torneos=" + torneos + ", periodo=" + periodo + '}';
+    }
     
 }
