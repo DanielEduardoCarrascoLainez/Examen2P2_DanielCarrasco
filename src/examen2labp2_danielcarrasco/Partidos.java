@@ -5,5 +5,7 @@
 package examen2labp2_danielcarrasco;
 //Hola
 public class Partidos {
+    String equipoUno;
+    String equipoDos;
     
 }
